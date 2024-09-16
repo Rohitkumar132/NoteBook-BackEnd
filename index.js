@@ -27,6 +27,9 @@ app.use("/api", authRoutes);
 app.use("/api", todoRoutes);
 app.use("/api", getTodoRoutes);
 app.use("/api", deleteTodoRoutes);
+app.get("/", (req,res)=>{
+    res.status(200).send({message:"This is server"})
+});
 
 const port = process.env.PORT || 5700;
 
