@@ -28,7 +28,7 @@ app.use("/api", todoRoutes);
 app.use("/api", getTodoRoutes);
 app.use("/api", deleteTodoRoutes);
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5700;
 
 app.listen(port, ()=>{
     console.log(`Listening on PORT ${port}`)
