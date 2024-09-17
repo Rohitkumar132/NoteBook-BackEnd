@@ -8,12 +8,12 @@ router.post("/auth", async(req,res)=>{
         const {error} = validate(req.body);
         if (error)
             return res.status(400).send({message: error.details[0].message})
-
-        const user = await User.findOne({email: req.body.email});
+        const email = req.body.email.toLowerCase();
+        const user = await User.findOne({email});
         
         console.log(user);
         if(!user)
-            return res.status(401).send({message:"Invalid Email or Password"});
+            return res.status(401).send({message:"User Not Register"});
 
         // const salt = await bcrypt.genSalt(Number(process.env.SALT));
         // const hashPassword = await bcrypt.hash(req.body.password, salt);

@@ -12,8 +12,13 @@ const todoSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-    }
-});
+    },
+    // createdAt:{
+    //     type:Date,
+    //     default:Date.now
+    // }
+},
+{timestamps: true});
 
 const Todo = mongoose.model('Todo', todoSchema);
 

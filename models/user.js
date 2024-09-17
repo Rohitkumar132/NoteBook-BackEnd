@@ -20,10 +20,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-})
+    createdAt:{
+        type:Date,
+        default:Date.now
+    }
+},
+{timestamps:true}
+)
 
 const generateAuthToken = function(_id){
-    const token = jwt.sign({_id},process.env.JWTPRIVATEKEY,{expiresIn: "7d"})
+    const token = jwt.sign({_id},process.env.JWTPRIVATEKEY,{expiresIn: "1d"})
     return token;   
 }
 
